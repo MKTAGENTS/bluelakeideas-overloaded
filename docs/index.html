@@ -605,6 +605,81 @@
     color: var(--white);
   }
 
+  /* ─── Does/doesn't comparison ─── */
+  .compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    margin: 0.5rem 0;
+  }
+  .compare .col {
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+  .compare .does {
+    background: rgba(4, 89, 81, 0.08);
+    border-left: 3px solid var(--teal);
+  }
+  .compare .does .lbl {
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--teal);
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+  }
+  .compare .doesnt {
+    background: rgba(0, 0, 0, 0.03);
+    border-left: 3px solid #999;
+  }
+  .compare .doesnt .lbl {
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #888;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+  }
+  .role-card {
+    background: var(--cream);
+    border-radius: 6px;
+    padding: 1rem 1.15rem;
+    margin: 0.75rem 0;
+    border-left: 3px solid var(--teal);
+  }
+  .role-card .role-num {
+    display: inline-block;
+    background: var(--teal);
+    color: var(--white);
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 22px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    margin-right: 0.5rem;
+    vertical-align: middle;
+  }
+  .role-card .role-title {
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 700;
+    font-size: 0.98rem;
+    color: var(--black);
+    vertical-align: middle;
+  }
+  .role-card .role-job {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text);
+    line-height: 1.55;
+  }
+  .role-card .role-job strong { color: var(--teal); }
+  @media (max-width: 540px) {
+    .compare { grid-template-columns: 1fr; }
+  }
+
   /* ─── Logo library ─── */
   .logo-grid {
     display: grid;
@@ -924,9 +999,135 @@
   </div>
 
 
-  <!-- ═══ 4. SEO / AEO STRATEGY ═══ -->
+
+  <!-- ═══ 4. CAMPAIGN METHODOLOGY ═══ -->
   <div class="section-header">
     <div class="num">Section 04</div>
+    <h2>Campaign Methodology — Email Sequence Best Practices</h2>
+  </div>
+
+  <div class="strategy-card">
+    <h3>The principle</h3>
+    <p><strong>Each email has one job. Activate, deliver, or convert. Never re-pitch.</strong></p>
+    <p>Repeating the value prop across multiple sends drains attention. The pitch already lives on the landing page and the welcome. Once they're on the list, every email needs a <em>new</em> reason to open.</p>
+  </div>
+
+  <div class="strategy-card">
+    <h3>The honest read on the current draft</h3>
+    <p>The welcome (Section 02) makes the full argument. Launch Email 1 (Section 03) makes the same argument again. <strong>That's redundant.</strong></p>
+    <p><strong>The fix:</strong> rewrite Launch Email 1 as pure activation — <em>"It's live. Here's the link. Here's why today."</em> No re-pitch.</p>
+    <p>Email 2 (Introduction) and Email 3 (Launch Day) each have a distinct job. Those are working.</p>
+  </div>
+
+  <div class="strategy-card">
+    <h3>The 5-role framework</h3>
+    <p>Every email in a launch campaign plays <strong>one</strong> role. Three are core. Two are optional based on cadence.</p>
+
+    <div class="role-card">
+      <span class="role-num">1</span>
+      <span class="role-title">Welcome — immediate, on signup</span>
+      <div class="role-job"><strong>Job:</strong> Set expectations + deliver one piece of immediate value.</div>
+      <div class="compare">
+        <div class="col does"><div class="lbl">Lands well</div>A quote, a clip, a 1-pager, a single insight</div>
+        <div class="col doesnt"><div class="lbl">Doesn't</div>Re-pitching the book</div>
+      </div>
+    </div>
+
+    <div class="role-card">
+      <span class="role-num">2</span>
+      <span class="role-title">Nurture — optional, during the wait</span>
+      <div class="role-job"><strong>Job:</strong> Stay top of mind. Build authority. Cadence: weekly or bi-weekly.</div>
+      <div class="compare">
+        <div class="col does"><div class="lbl">Lands well</div>One idea per send, one video, one story</div>
+        <div class="col doesnt"><div class="lbl">Doesn't</div>Feature dumps or "ICYMI" digests</div>
+      </div>
+    </div>
+
+    <div class="role-card">
+      <span class="role-num">3</span>
+      <span class="role-title">Announce — day pre-orders open</span>
+      <div class="role-job"><strong>Job:</strong> Activate the moment. Don't re-sell.</div>
+      <div class="compare">
+        <div class="col does"><div class="lbl">Lands well</div>News + link + one sentence on why today</div>
+        <div class="col doesnt"><div class="lbl">Doesn't</div>The case for the book — that's already been made</div>
+      </div>
+    </div>
+
+    <div class="role-card">
+      <span class="role-num">4</span>
+      <span class="role-title">Deliver value — mid-window</span>
+      <div class="role-job"><strong>Job:</strong> Give them something tangible. The Introduction. A bonus chapter. A live AMA invite.</div>
+      <div class="compare">
+        <div class="col does"><div class="lbl">Lands well</div>The asset + one pull-quote + a low-pressure CTA</div>
+        <div class="col doesnt"><div class="lbl">Doesn't</div>Front-loading the ask</div>
+      </div>
+    </div>
+
+    <div class="role-card">
+      <span class="role-num">5</span>
+      <span class="role-title">Final call — launch day or last day of pre-order</span>
+      <div class="role-job"><strong>Job:</strong> Convert the fence-sitters.</div>
+      <div class="compare">
+        <div class="col does"><div class="lbl">Lands well</div>Urgency, personal voice, last-chance bonuses</div>
+        <div class="col doesnt"><div class="lbl">Doesn't</div>Sounding desperate or re-pitching</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="strategy-card">
+    <h3>What Matt and Anne need to provide — by email</h3>
+    <p>For each role, the inputs we need to draft. Send the inputs; we'll handle the structure and voice.</p>
+
+    <h4>Welcome</h4>
+    <ul>
+      <li>One "first taste" asset — clip, quote, 1-pager. What should they read or watch immediately?</li>
+      <li>Optional: a preview of what's coming next</li>
+    </ul>
+
+    <h4>Nurture (if running)</h4>
+    <ul>
+      <li>3–6 short ideas or stories Matt's been working with</li>
+      <li>Existing videos to highlight</li>
+      <li>Any new podcast or article appearances to share</li>
+    </ul>
+
+    <h4>Announce</h4>
+    <ul>
+      <li>Pre-order live date</li>
+      <li>Pre-order link(s) — retail + direct</li>
+      <li>One sentence on why <em>this</em> is the moment</li>
+    </ul>
+
+    <h4>Introduction drop</h4>
+    <ul>
+      <li>The Introduction itself (PDF or web page)</li>
+      <li>One pull-quote</li>
+      <li>The next CTA — continue to pre-order</li>
+    </ul>
+
+    <h4>Launch day</h4>
+    <ul>
+      <li>Retail link(s)</li>
+      <li>A short personal note from Matt — 5–10 sentences</li>
+      <li>Any launch-day-only bonuses or events</li>
+    </ul>
+  </div>
+
+  <div class="strategy-card">
+    <h3>The rules — every send</h3>
+    <ul>
+      <li><strong>One goal per email.</strong> If two compete, split into two emails.</li>
+      <li><strong>One CTA per email.</strong> Two CTAs = the reader picks neither.</li>
+      <li><strong>Lead with the news, never the framing.</strong> The first sentence does the work.</li>
+      <li><strong>Matt's voice on the critical sends.</strong> Launch Day is signed by Matt personally — not the team.</li>
+      <li><strong>Subject line is the headline.</strong> Write it last. Edit it twice.</li>
+      <li><strong>Test subject lines.</strong> Open rate tells us what works.</li>
+    </ul>
+  </div>
+
+  <!-- ═══ 5. SEO / AEO STRATEGY ═══ -->
+  <div class="section-header">
+    <div class="num">Section 05</div>
     <h2>Driving Organic Traffic — SEO &amp; AEO</h2>
   </div>
 
@@ -1034,9 +1235,9 @@
   </div>
 
 
-    <!-- ═══ 5. SQUARESPACE → HUBSPOT LEAD FLOW ═══ -->
+    <!-- ═══ 6. SQUARESPACE → HUBSPOT LEAD FLOW ═══ -->
   <div class="section-header">
-    <div class="num">Section 05</div>
+    <div class="num">Section 06</div>
     <h2>Squarespace Email → HubSpot Lead Flow</h2>
   </div>
 
@@ -1124,9 +1325,9 @@
     </ul>
   </div>
 
-<!-- ═══ 6. LOGO LIBRARY ═══ -->
+<!-- ═══ 7. LOGO LIBRARY ═══ -->
   <div class="section-header">
-    <div class="num">Section 06</div>
+    <div class="num">Section 07</div>
     <h2>Logo Assets — Reversed Out, Transparent Background</h2>
   </div>
 
