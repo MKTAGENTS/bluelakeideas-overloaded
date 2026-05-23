@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Font Hierarchy Reference | Blue Lake Ideas</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal: #045951;
+    --teal-deep: #033f39;
+    --black: #1a1a1a;
+    --text: #2c2a27;
+    --text-light: #5c5955;
+    --white: #ffffff;
+    --cream: #f8f7f4;
+    --border: #e0ddd8;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'DM Sans', -apple-system, sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: var(--teal); color: var(--white); }
+
+  .doc-header {
+    background: var(--teal);
+    color: var(--white);
+    padding: 2.5rem 2rem 2.25rem;
+    text-align: center;
+  }
+  .doc-header .eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    opacity: 0.75;
+    margin-bottom: 0.6rem;
+  }
+  .doc-header h1 {
+    font-family: 'Libre Baskerville', serif;
+    font-style: italic;
+    font-size: 1.9rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+  }
+  .doc-header p {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    max-width: 620px;
+    margin: 0 auto;
+  }
+
+  .container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 5rem;
+  }
+
+  .section-header {
+    margin: 3rem 0 1.25rem;
+    border-bottom: 2px solid var(--teal);
+    padding-bottom: 0.6rem;
+  }
+  .section-header:first-of-type { margin-top: 0; }
+  .section-header .num {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--teal);
+    font-weight: 600;
+  }
+  .section-header h2 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--black);
+    margin-top: 0.3rem;
+  }
+
+  .card {
+    background: var(--white);
+    border-radius: 6px;
+    padding: 1.5rem 1.75rem;
+    margin-top: 1.25rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    border-top: 3px solid var(--teal);
+  }
+  .card h3 {
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--black);
+    margin-bottom: 0.5rem;
+  }
+  .card p {
+    font-size: 0.93rem;
+    line-height: 1.6;
+    margin-bottom: 0.75rem;
+  }
+  .card strong { color: var(--teal); font-weight: 700; }
+
+  /* Typeface comparison */
+  .typeface-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  .typeface-card {
+    background: var(--cream);
+    border-radius: 6px;
+    padding: 1.25rem 1.4rem;
+    border-left: 3px solid var(--teal);
+  }
+  .typeface-card .label {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--teal);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  .typeface-card .name {
+    font-size: 1.5rem;
+    color: var(--black);
+    margin-bottom: 0.5rem;
+    line-height: 1.1;
+  }
+  .typeface-card.serif .name {
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 700;
+  }
+  .typeface-card.sans .name {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+  .typeface-card .job {
+    font-size: 0.85rem;
+    color: var(--text);
+    line-height: 1.5;
+  }
+  .typeface-card .where {
+    font-size: 0.78rem;
+    color: var(--text-light);
+    margin-top: 0.5rem;
+    font-style: italic;
+  }
+
+  /* Code block */
+  pre.code {
+    background: #1a1a1a;
+    color: #e8e8e8;
+    padding: 1rem 1.15rem;
+    border-radius: 6px;
+    font-family: 'SF Mono', Menlo, monospace;
+    font-size: 0.78rem;
+    line-height: 1.55;
+    overflow-x: auto;
+    margin-top: 0.75rem;
+  }
+  pre.code .tag { color: #ff9d8c; }
+  pre.code .attr { color: #ffd084; }
+  pre.code .str { color: #b8e986; }
+
+  /* Hierarchy table */
+  .hier-row {
+    display: grid;
+    grid-template-columns: minmax(180px, 1.4fr) minmax(160px, 1fr);
+    gap: 1rem;
+    align-items: center;
+    padding: 1.1rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .hier-row:last-child { border-bottom: none; }
+  .hier-row .sample { min-width: 0; overflow-wrap: anywhere; }
+  .hier-row .specs {
+    font-family: 'SF Mono', Menlo, monospace;
+    font-size: 0.72rem;
+    color: var(--text-light);
+    line-height: 1.65;
+  }
+  .hier-row .specs strong {
+    color: var(--teal);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 0.15rem;
+  }
+
+  /* Live samples — all sized down a bit on small screens */
+  .s-h1 {
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 700;
+    font-size: 2.6rem;
+    color: var(--black);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+  }
+  .s-h2 {
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--black);
+  }
+  .s-h3 {
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--black);
+  }
+  .s-subhead {
+    font-family: 'Libre Baskerville', serif;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: var(--text-light);
+  }
+  .s-body { font-size: 1rem; line-height: 1.55; color: var(--text); }
+  .s-small { font-size: 0.92rem; line-height: 1.55; color: var(--text); }
+  .s-eyebrow {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--teal);
+  }
+  .s-sec-num {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--teal);
+  }
+  .s-h4 {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--teal);
+  }
+  .s-button {
+    display: inline-block;
+    background: var(--teal);
+    color: var(--white);
+    padding: 0.7rem 1.4rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    border-radius: 2px;
+  }
+  .s-fine { font-size: 0.72rem; color: var(--text-light); letter-spacing: 0.05em; }
+
+  /* Rules grid */
+  .rules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0.75rem;
+    margin-top: 1rem;
+  }
+  .rule {
+    background: var(--cream);
+    border-left: 3px solid var(--teal);
+    padding: 0.85rem 1rem;
+    border-radius: 0 4px 4px 0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+  }
+  .rule strong { color: var(--teal); font-weight: 700; }
+
+  /* Color swatch */
+  .color-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: var(--cream);
+    border-radius: 4px;
+  }
+  .swatch-square {
+    width: 40px;
+    height: 40px;
+    background: var(--teal);
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+  .color-row .info { font-size: 0.85rem; }
+  .color-row .info strong { color: var(--teal); font-family: 'SF Mono', Menlo, monospace; }
+
+  .doc-footer {
+    text-align: center;
+    padding: 3rem 1.5rem 0;
+    font-size: 0.72rem;
+    color: var(--text-light);
+    letter-spacing: 0.06em;
+  }
+  .doc-footer .tm { margin-top: 0.4rem; opacity: 0.7; }
+  .doc-footer a { color: var(--teal); text-decoration: none; font-weight: 600; }
+  .doc-footer a:hover { text-decoration: underline; }
+
+  @media (max-width: 640px) {
+    .typeface-grid { grid-template-columns: 1fr; }
+    .hier-row { grid-template-columns: 1fr; gap: 0.5rem; }
+    .s-h1 { font-size: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="doc-header">
+  <div class="eyebrow">Brand Reference</div>
+  <h1>Font Hierarchy</h1>
+  <p>The typography system used across Blue Lake Ideas web properties. Replicate exactly for the &amp; Intelligence Workbook and any future deliverables.</p>
+</div>
+
+<div class="container">
+
+  <!-- ═══ 1. THE TWO TYPEFACES ═══ -->
+  <div class="section-header">
+    <div class="num">Section 01</div>
+    <h2>The Two Typefaces</h2>
+  </div>
+
+  <div class="card">
+    <h3>Clear division of labor</h3>
+    <p>Two typefaces. Each does one job. The combination is what makes the brand feel both editorial and modern.</p>
+
+    <div class="typeface-grid">
+      <div class="typeface-card serif">
+        <div class="label">Serif · Display</div>
+        <div class="name">Libre Baskerville</div>
+        <div class="job">Display + emotional accent</div>
+        <div class="where">Headlines, italic subheads, email subject lines, signatures</div>
+      </div>
+      <div class="typeface-card sans">
+        <div class="label">Sans · Workhorse</div>
+        <div class="name">DM Sans</div>
+        <div class="job">Everything else</div>
+        <div class="where">Body, UI, labels, buttons, eyebrows</div>
+      </div>
+    </div>
+
+    <h4 style="margin-top:1.25rem;font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal);font-weight:700;">Google Fonts import</h4>
+    <pre class="code">&lt;link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&amp;family=DM+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"&gt;</pre>
+  </div>
+
+  <!-- ═══ 2. HIERARCHY ═══ -->
+  <div class="section-header">
+    <div class="num">Section 02</div>
+    <h2>The Hierarchy — Top to Bottom</h2>
+  </div>
+
+  <div class="card">
+    <h3>Live samples + specs</h3>
+    <p>Each row shows the rendered type at production size, with the exact CSS values to the right.</p>
+
+    <div class="hier-row">
+      <div class="sample s-h1">Overloaded.</div>
+      <div class="specs"><strong>H1 / Hero title</strong>
+Libre Baskerville · 3.6rem · 700 · −0.01em · 1.05 lh</div>
+    </div>
+
+    <div class="hier-row">
+      <div class="sample s-h2">The Hierarchy</div>
+      <div class="specs"><strong>H2 / Section</strong>
+Libre Baskerville · 1.5rem · 700</div>
+    </div>
+
+    <div class="hier-row">
+      <div class="sample s-h3">Card title</div>
+      <div class="specs"><strong>H3 / Card title</strong>
+Libre Baskerville · 1.05–1.1rem · 700</div>
+    </div>
+
+    <div class="hier-row">
+      <div class="sample s-subhead">Recapturing Leadership Capacity</div>
+      <div class="specs"><strong>Italic subhead</strong>
+Libre Baskerville · 1.2rem · 400 · italic · 1.4 lh</div>
+    </div>
+
+    <div class="hier-row">
+      <div class="sample s-body">Body copy. The workhorse — clean, readable, sets the rhythm of every section. Use DM Sans 1rem with 1.55 line-height.</div>
+      <div class="specs"><strong>Body</strong>
+DM Sans · 1rem · 400 · 1.55 lh</div>
+    </div>
+
+    <div class="hier-row">
+      <div class="sample s-small">Small body. Same family, slightly tighter — used inside cards and tighter UI regions.</div>
+      <div class="specs"><strong>Small body</strong>
+DM Sans · 0.92–0.95rem · 400</div>
+    </div>
+
+    <div class="hier-row">
+      <div class="sample s-eyebrow">A New Book by Matt Elliott</div>
+      <div class="specs"><strong>Eyebrow / label</strong>
+DM Sans · 0.7–0.72rem · 600 · UPPERCASE · 0.18–0.22em</div>
+    </div>
+
+    <div class="hier-row">
+      <div class="sample s-sec-num">Section 04</div>
+      <div class="specs"><strong>Section number</strong>
+DM Sans · 0.7rem · 600 · UPPERCASE · 0.20em</div>
+    </div>
+
+    <div class="hier-row">
+      <div class="sample s-h4">Page Metadata</div>
+      <div class="specs"><strong>H4 / Mini-label</strong>
+DM Sans · 0.72rem · 700 · UPPERCASE · 0.18em</div>
+    </div>
+
+    <div class="hier-row">
+      <div class="sample"><span class="s-button">Join the Waitlist</span></div>
+      <div class="specs"><strong>Button</strong>
+DM Sans · 0.78rem · 700 · UPPERCASE · 0.16em</div>
+    </div>
+
+    <div class="hier-row">
+      <div class="sample s-fine">The Power of &amp;™ and &amp; Intelligence™ are trademarks of Blue Lake Ideas LLC</div>
+      <div class="specs"><strong>Fineprint / TM</strong>
+DM Sans · 0.65–0.72rem · 400 · 0.05–0.14em</div>
+    </div>
+  </div>
+
+  <!-- ═══ 3. UNIVERSAL RULES ═══ -->
+  <div class="section-header">
+    <div class="num">Section 03</div>
+    <h2>Universal Rules</h2>
+  </div>
+
+  <div class="card">
+    <h3>Five rules that hold everything together</h3>
+    <div class="rules-grid">
+      <div class="rule"><strong>Line-height scales with size.</strong> Body 1.65 · cards 1.55–1.6 · headlines 1.05–1.4.</div>
+      <div class="rule"><strong>Letter-spacing scales with case.</strong> The smaller and more uppercase, the more tracking (0.16–0.22em).</div>
+      <div class="rule"><strong>Bold emphasis is teal, not black.</strong> &lt;strong&gt; tags inside paragraphs use <span style="font-family:'SF Mono',monospace;background:var(--cream);padding:0 0.3rem;border-radius:3px;">#045951</span> for color.</div>
+      <div class="rule"><strong>Italic Libre Baskerville is the "voice."</strong> Use for taglines, signatures, mail subjects, anywhere warmth matters.</div>
+      <div class="rule"><strong>Sans for everything functional. Serif for everything emotional.</strong> When in doubt, default to DM Sans.</div>
+    </div>
+  </div>
+
+  <!-- ═══ 4. COLOR ═══ -->
+  <div class="section-header">
+    <div class="num">Section 04</div>
+    <h2>Color Anchor</h2>
+  </div>
+
+  <div class="card">
+    <h3>One brand color does the heavy lifting</h3>
+    <p>Brand teal anchors eyebrows, section numbers, H4s, buttons, and bold emphasis. It's the "this is Blue Lake Ideas" signal across every surface.</p>
+    <div class="color-row">
+      <div class="swatch-square"></div>
+      <div class="info">
+        <div><strong>--teal: #045951</strong></div>
+        <div style="color:var(--text-light);">Primary brand color · used for emphasis, links, and accents</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ 5. PASTE-READY ═══ -->
+  <div class="section-header">
+    <div class="num">Section 05</div>
+    <h2>Paste-Ready CSS</h2>
+  </div>
+
+  <div class="card">
+    <h3>Drop this into the workbook</h3>
+    <p>Everything needed to bootstrap the hierarchy on a new page. Copy, paste, build.</p>
+
+    <pre class="code">:root {
+  --teal: #045951;
+  --teal-deep: #033f39;
+  --black: #1a1a1a;
+  --text: #2c2a27;
+  --text-light: #5c5955;
+  --white: #ffffff;
+  --cream: #f8f7f4;
+}
+
+body {
+  font-family: 'DM Sans', -apple-system, sans-serif;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--cream);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 3.6rem;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: var(--black);
+}
+
+h2 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--black);
+}
+
+h3 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--black);
+}
+
+.subhead {
+  font-family: 'Libre Baskerville', serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  line-height: 1.4;
+  color: var(--text-light);
+}
+
+.eyebrow {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+
+h4 {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+
+.btn {
+  background: var(--teal);
+  color: var(--white);
+  padding: 0.85rem 1.5rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+strong { color: var(--teal); font-weight: 700; }</pre>
+  </div>
+
+  <div class="doc-footer">
+    Blue Lake Ideas · Font Hierarchy Reference
+    <div class="tm">The Power of &amp;™ and &amp; Intelligence™ are trademarks of Blue Lake Ideas LLC</div>
+    <div style="margin-top:0.75rem;"><a href="./">← Back to Overloaded Campaign Reference</a></div>
+  </div>
+
+</div>
+
+</body>
+</html>
