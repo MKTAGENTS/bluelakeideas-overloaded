@@ -1,191 +1,378 @@
-/* ═══════════════════════════════════════════════════════
-   OVERLOADED — Squarespace Page Override CSS
+/* ════════════════════════════════════════════════════════════════
+   OVERLOADED — Bulletproof Squarespace Page Override CSS
+   v2.0 — Hardened against Squarespace 7.1 defaults
+   ────────────────────────────────────────────────────────────────
    Paste into: Page Settings → Advanced → Page Header Code Injection
    Wrap the entire block below in <style>...</style>
-   Requires Squarespace Business plan or higher
-   ═══════════════════════════════════════════════════════ */
+   Compatible with: Fluid Engine + Classic Editor
+   Requires: Squarespace Business plan or higher
+   ════════════════════════════════════════════════════════════════ */
 
-/* Load brand fonts */
+/* ─── 1. FONT LOADING (preconnect for speed, then import) ─── */
+/* Note: <link rel="preconnect"> goes in Page Header above this <style> tag.
+   Add these two lines BEFORE the <style> tag:
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+*/
+
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap');
 
-/* ─── HEADINGS — Libre Baskerville bold ─── */
+/* ─── 2. BRAND TOKENS ─── */
+:root {
+  --deep-blue-lake: #005B54;
+  --deep-blue-lake-deep: #003D38;
+  --kalkaska-mud: #EEF4F3;
+  --warm-clay: #A66900;
+  --warm-clay-deep: #7A4C00;
+  --ashes-brindle: #2D2D2D;
+  --clarity-white: #FFFFFF;
+  --text-light: #5A5A5A;
+  --border: #E5E5E5;
+}
+
+/* ─── 3. PREVENT IOS INPUT ZOOM ─── */
+/* iOS Safari zooms when input font-size < 16px. Lock at 16px+ on form fields */
+input, textarea, select {
+  font-size: 16px !important;
+}
+
+/* ─── 4. RESET SQUARESPACE'S DEFAULT FONT FOR THIS PAGE ─── */
+body,
+body *,
+.sqs-block,
+.sqs-block * {
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+/* ─── 5. HEADINGS — Libre Baskerville, hardened against Site Style overrides ─── */
 h1, h2, h3,
-.sqs-block-html h1,
-.sqs-block-html h2,
-.sqs-block-html h3 {
-  font-family: 'Libre Baskerville', serif !important;
+.sqs-block-html h1, .sqs-block-html h2, .sqs-block-html h3,
+.sqs-block h1, .sqs-block h2, .sqs-block h3,
+[data-block-type] h1, [data-block-type] h2, [data-block-type] h3 {
+  font-family: 'Libre Baskerville', Georgia, serif !important;
   font-weight: 700 !important;
-  color: #2D2D2D !important;
+  color: var(--ashes-brindle) !important;
   letter-spacing: -0.01em !important;
 }
 
 h1, .sqs-block-html h1 {
-  font-size: 4.5rem !important;
+  font-size: clamp(2.5rem, 8vw, 4.5rem) !important;
   line-height: 1.02 !important;
+  margin-bottom: 0.6rem !important;
 }
 
 h2, .sqs-block-html h2 {
-  font-size: 2.4rem !important;
+  font-size: clamp(1.7rem, 5vw, 2.4rem) !important;
   line-height: 1.15 !important;
+  margin-bottom: 1.2rem !important;
 }
 
 h3, .sqs-block-html h3 {
-  font-size: 1.5rem !important;
-  line-height: 1.2 !important;
+  font-size: clamp(1.2rem, 3vw, 1.5rem) !important;
+  line-height: 1.25 !important;
+  margin-bottom: 0.6rem !important;
 }
 
-/* ─── ITALIC SUBHEAD — H4 repurposed ─── */
+/* ─── 6. H4 REPURPOSED AS ITALIC SUBHEAD ─── */
 h4, .sqs-block-html h4 {
-  font-family: 'Libre Baskerville', serif !important;
+  font-family: 'Libre Baskerville', Georgia, serif !important;
   font-style: italic !important;
   font-weight: 400 !important;
-  font-size: 1.35rem !important;
-  color: #5A5A5A !important;
+  font-size: clamp(1.1rem, 3vw, 1.35rem) !important;
+  color: var(--text-light) !important;
   line-height: 1.4 !important;
   letter-spacing: 0 !important;
+  margin-bottom: 0.5rem !important;
+  text-transform: none !important;
 }
 
-/* ─── BODY TEXT — DM Sans ─── */
+/* ─── 7. BODY TEXT — DM Sans, locked color and weight ─── */
 body, p, li,
-.sqs-block-html p,
-.sqs-block-html li {
+.sqs-block-html p, .sqs-block-html li,
+.sqs-block p, .sqs-block li {
   font-family: 'DM Sans', -apple-system, sans-serif !important;
-  color: #2D2D2D !important;
+  color: var(--ashes-brindle) !important;
   line-height: 1.65 !important;
+  font-weight: 400 !important;
 }
 
 .sqs-block-html p {
-  font-size: 1.075rem !important;
+  font-size: clamp(0.98rem, 2.4vw, 1.075rem) !important;
+  margin-bottom: 1.25rem !important;
 }
 
-/* ─── EYEBROW LABEL — small caps DM Sans, use any H4 with class ─── */
+/* ─── 8. EYEBROW LABEL (via Markdown block with class) ─── */
 .sqs-block-html .eyebrow,
-.sqs-block-html p.eyebrow {
+.sqs-block-html p.eyebrow,
+.eyebrow {
   font-family: 'DM Sans', sans-serif !important;
   font-size: 0.72rem !important;
   font-style: normal !important;
   font-weight: 600 !important;
   letter-spacing: 0.22em !important;
   text-transform: uppercase !important;
-  color: #005B54 !important;
+  color: var(--deep-blue-lake) !important;
+  margin-bottom: 0.75rem !important;
 }
 
-/* ─── BLOCKQUOTE — pull quote style ─── */
+/* ─── 9. BLOCKQUOTE — large pull-quote ─── */
 blockquote,
-.sqs-block-quote blockquote {
-  font-family: 'Libre Baskerville', serif !important;
+.sqs-block-quote blockquote,
+.sqs-block-quote .source {
+  font-family: 'Libre Baskerville', Georgia, serif !important;
   font-weight: 700 !important;
-  font-size: 2.4rem !important;
+  font-size: clamp(1.6rem, 4.5vw, 2.4rem) !important;
   line-height: 1.25 !important;
-  color: #2D2D2D !important;
+  color: var(--ashes-brindle) !important;
   letter-spacing: -0.01em !important;
   font-style: normal !important;
+  border: none !important;
 }
 
 blockquote em,
 .sqs-block-quote em {
   font-style: italic !important;
-  color: #005B54 !important;
+  color: var(--deep-blue-lake) !important;
   font-weight: 400 !important;
 }
 
-/* ─── BUTTON BLOCK — Deep Blue Lake fill ─── */
+/* ─── 10. STRONG (bold emphasis inside body) ─── */
+strong, .sqs-block-html strong, .sqs-block strong, b {
+  color: var(--deep-blue-lake) !important;
+  font-weight: 700 !important;
+}
+
+/* On dark Deep Blue Lake backgrounds, strong should stay readable */
+[data-section-theme="dark"] strong,
+.has-dark-background strong,
+.section-background-dark strong {
+  color: var(--warm-clay) !important;
+}
+
+/* ─── 11. LINK COLOR + UNDERLINE ─── */
+a:not(.sqs-block-button-element),
+.sqs-block-html a {
+  color: var(--deep-blue-lake) !important;
+  text-decoration: underline !important;
+  text-underline-offset: 3px !important;
+  transition: color 0.2s ease !important;
+}
+
+a:not(.sqs-block-button-element):hover,
+.sqs-block-html a:hover {
+  color: var(--warm-clay) !important;
+}
+
+/* ─── 12. BUTTONS — every variant Squarespace renders ─── */
 .sqs-block-button-element,
 .sqs-block-button-element--primary,
-.sqs-block-button-element--secondary {
-  background: #005B54 !important;
-  color: #FFFFFF !important;
+.sqs-block-button-element--secondary,
+.sqs-block-button-element--tertiary,
+a.sqs-block-button-element,
+button.sqs-block-button-element {
+  background: var(--deep-blue-lake) !important;
+  background-color: var(--deep-blue-lake) !important;
+  color: var(--clarity-white) !important;
   font-family: 'DM Sans', sans-serif !important;
   font-weight: 700 !important;
-  font-size: 0.82rem !important;
+  font-size: clamp(0.74rem, 2vw, 0.82rem) !important;
   letter-spacing: 0.18em !important;
   text-transform: uppercase !important;
   padding: 1rem 2rem !important;
   border-radius: 2px !important;
   border: none !important;
-  transition: background 0.2s !important;
+  text-decoration: none !important;
+  display: inline-block !important;
+  transition: background 0.2s ease !important;
+  min-height: 48px !important; /* touch-target accessibility */
+  cursor: pointer !important;
 }
 
 .sqs-block-button-element:hover,
-.sqs-block-button-element--primary:hover {
-  background: #003D38 !important;
-  color: #FFFFFF !important;
+a.sqs-block-button-element:hover {
+  background: var(--deep-blue-lake-deep) !important;
+  color: var(--clarity-white) !important;
 }
 
-/* ─── NEWSLETTER BLOCK — the waitlist capture ─── */
+.sqs-block-button-element:focus,
+.sqs-block-button-element:focus-visible {
+  outline: 3px solid var(--warm-clay) !important;
+  outline-offset: 2px !important;
+}
+
+/* ─── 13. NEWSLETTER BLOCK — every nested selector hardened ─── */
+/* This is the critical lead capture. Cover both Fluid Engine and Classic. */
+
 .sqs-block-newsletter,
-.newsletter-block {
+.newsletter-block,
+.newsletter-form,
+[data-block-type="newsletter"] {
   font-family: 'DM Sans', sans-serif !important;
+  max-width: 480px !important;
+  margin: 0 auto !important;
 }
 
+/* Newsletter title + description (rendered by Squarespace) */
 .newsletter-form-header-title,
-.sqs-block-newsletter h2 {
-  font-family: 'Libre Baskerville', serif !important;
+.sqs-block-newsletter h2,
+.newsletter-block .newsletter-form-header-title {
+  font-family: 'Libre Baskerville', Georgia, serif !important;
   font-weight: 700 !important;
-  color: #FFFFFF !important;
+  font-size: clamp(1.6rem, 4.5vw, 2.4rem) !important;
+  color: var(--clarity-white) !important;
+  line-height: 1.15 !important;
+  margin-bottom: 1rem !important;
 }
 
-.newsletter-form-header-description {
-  font-family: 'Libre Baskerville', serif !important;
+.newsletter-form-header-description,
+.newsletter-block .newsletter-form-header-description {
+  font-family: 'Libre Baskerville', Georgia, serif !important;
   font-style: italic !important;
+  font-size: clamp(1rem, 2.5vw, 1.2rem) !important;
   color: rgba(255, 255, 255, 0.92) !important;
+  line-height: 1.5 !important;
+  margin-bottom: 1.75rem !important;
 }
 
+/* Input fields */
 .newsletter-form-field-element,
-.newsletter-form-field-wrapper input {
+.newsletter-form-field-wrapper input,
+.newsletter-block input[type="text"],
+.newsletter-block input[type="email"],
+.newsletter-form input {
   font-family: 'DM Sans', sans-serif !important;
-  background: #FFFFFF !important;
-  color: #2D2D2D !important;
+  background: var(--clarity-white) !important;
+  color: var(--ashes-brindle) !important;
   border: none !important;
   border-radius: 2px !important;
   padding: 0.95rem 1.1rem !important;
-  font-size: 0.95rem !important;
+  font-size: 16px !important; /* prevents iOS zoom */
+  width: 100% !important;
+  margin-bottom: 0.6rem !important;
+  box-shadow: none !important;
 }
 
-.newsletter-form-button {
-  background: #2D2D2D !important;
-  color: #FFFFFF !important;
+.newsletter-form-field-element::placeholder,
+.newsletter-form input::placeholder {
+  color: #a8a5a0 !important;
+  opacity: 1 !important;
+}
+
+.newsletter-form-field-element:focus,
+.newsletter-form input:focus {
+  outline: 3px solid var(--warm-clay) !important;
+  outline-offset: 2px !important;
+}
+
+/* Newsletter submit button — Warm Clay for warmth/invitation */
+.newsletter-form-button,
+.newsletter-form button[type="submit"],
+.newsletter-block button {
+  background: var(--warm-clay) !important;
+  background-color: var(--warm-clay) !important;
+  color: var(--clarity-white) !important;
   font-family: 'DM Sans', sans-serif !important;
   font-weight: 700 !important;
-  font-size: 0.82rem !important;
+  font-size: clamp(0.74rem, 2vw, 0.82rem) !important;
   letter-spacing: 0.18em !important;
   text-transform: uppercase !important;
   padding: 1rem 1.5rem !important;
   border-radius: 2px !important;
   border: none !important;
   width: 100% !important;
+  min-height: 48px !important;
+  cursor: pointer !important;
+  transition: background 0.2s ease !important;
+  margin-top: 0.5rem !important;
 }
 
-.newsletter-form-button:hover {
-  background: #000 !important;
+.newsletter-form-button:hover,
+.newsletter-form button[type="submit"]:hover {
+  background: var(--warm-clay-deep) !important;
 }
 
-/* ─── LINK COLOR ─── */
-a, .sqs-block-html a {
-  color: #005B54 !important;
-}
-a:hover { color: #003D38 !important; }
-
-/* ─── STRONG (bold inside paragraphs) ─── */
-strong, .sqs-block-html strong {
-  color: #005B54 !important;
-  font-weight: 700 !important;
+/* Newsletter success message */
+.newsletter-form-success-message,
+.newsletter-form .form-submission-text {
+  font-family: 'Libre Baskerville', Georgia, serif !important;
+  font-style: italic !important;
+  color: var(--clarity-white) !important;
+  font-size: clamp(1rem, 2.5vw, 1.2rem) !important;
 }
 
-/* ─── SECTION ALIGNMENT TWEAKS ─── */
-.fluid-engine {
-  max-width: 920px !important;
+/* Newsletter error states */
+.newsletter-form-field-element--error,
+.newsletter-form input.error {
+  outline: 2px solid #c0392b !important;
+  outline-offset: 0 !important;
+}
+
+/* ─── 14. FORM BLOCK FALLBACK (if Newsletter Block isn't used) ─── */
+.sqs-block-form .form-item input,
+.sqs-block-form .form-item textarea {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 16px !important;
+  padding: 0.95rem 1.1rem !important;
+  border-radius: 2px !important;
+}
+
+.sqs-block-form .sqs-block-button-element {
+  background: var(--warm-clay) !important;
+}
+
+/* ─── 15. IMAGE BLOCKS — center alignment and tighter wrap ─── */
+.sqs-block-image .image-block-wrapper {
   margin: 0 auto !important;
 }
 
-/* ─── MOBILE ─── */
+/* ─── 16. SECTION CONTENT WIDTH ─── */
+.fluid-engine,
+.sqs-layout {
+  max-width: 980px !important;
+  margin: 0 auto !important;
+}
+
+/* ─── 17. CACHE BUSTING NOTE ─── */
+/* Squarespace caches CSS aggressively. If changes don't appear after save:
+   1. Hard refresh: Cmd+Shift+R (Mac) or Ctrl+Shift+R (Windows)
+   2. Test in incognito/private window
+   3. Add ?v=2 (increment) to your override page URL when testing
+*/
+
+/* ─── 18. MOBILE BREAKPOINTS — hardened ─── */
 @media (max-width: 740px) {
-  h1, .sqs-block-html h1 { font-size: 3rem !important; }
-  h2, .sqs-block-html h2 { font-size: 1.8rem !important; }
-  h4, .sqs-block-html h4 { font-size: 1.1rem !important; }
-  blockquote { font-size: 1.6rem !important; }
+  .sqs-block-button-element {
+    padding: 0.9rem 1.5rem !important;
+    width: 100% !important;
+    max-width: 320px !important;
+  }
+  blockquote, .sqs-block-quote blockquote {
+    font-size: 1.6rem !important;
+  }
 }
 
 @media (max-width: 420px) {
-  h1, .sqs-block-html h1 { font-size: 2.5rem !important; }
+  h1, .sqs-block-html h1 {
+    font-size: 2.5rem !important;
+  }
+  .sqs-block-newsletter, .newsletter-form {
+    max-width: 100% !important;
+  }
 }
+
+/* ─── 19. PRINT FRIENDLY (optional but nice) ─── */
+@media print {
+  .sqs-block-button-element { display: none !important; }
+  body { background: white !important; }
+}
+
+/* ─── 20. ACCESSIBILITY — focus rings on all interactive elements ─── */
+:focus-visible {
+  outline: 3px solid var(--warm-clay) !important;
+  outline-offset: 2px !important;
+}
+
+/* ════════════════════════════════════════════════════════════════
+   END BULLETPROOF OVERRIDES
+   Last reviewed: ready for production
+   ════════════════════════════════════════════════════════════════ */
