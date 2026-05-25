@@ -83,7 +83,7 @@
 .bli-hero { font-family: &#x27;DM Sans&#x27;, sans-serif; background: #FFFFFF; padding: 5rem 1.5rem 4.5rem; text-align: center; max-width: 920px; margin: 0 auto; }
 .bli-hero * { box-sizing: border-box; }
 .bli-hero .eyebrow { font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: #005B54; font-weight: 600; margin-bottom: 1.5rem; }
-.bli-hero h1 { font-family: &#x27;Libre Baskerville&#x27;, serif; font-weight: 700; font-size: 4.5rem; color: #2D2D2D; line-height: 1.02; margin: 0 0 0.6rem 0; letter-spacing: -0.015em; }
+.bli-hero h1 { font-family: &#x27;Libre Baskerville&#x27;, serif !important; font-weight: 700 !important; font-size: clamp(2.25rem, 11vw, 4.5rem) !important; color: #2D2D2D !important; line-height: 1.02 !important; margin: 0 0 0.6rem 0 !important; letter-spacing: -0.015em !important; max-width: 100% !important; word-break: break-word !important; }
 .bli-hero .subhead { font-family: &#x27;Libre Baskerville&#x27;, serif; font-style: italic; font-size: 1.35rem; color: #5A5A5A; max-width: 580px; margin: 0 auto 0.5rem; line-height: 1.4; }
 .bli-hero .subhead-logo { margin: 0.4rem auto 1.75rem; }
 .bli-hero .subhead-logo img { height: 2.2rem; width: auto; max-width: 320px; }
@@ -92,8 +92,7 @@
 .bli-hero .cta { display: inline-block; background: #005B54; color: #FFFFFF; padding: 1rem 2rem; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; border-radius: 2px; transition: background 0.2s; }
 .bli-hero .cta:hover { background: #003D38; }
 .bli-hero .fineprint { font-size: 0.78rem; color: #5A5A5A; margin-top: 1rem; }
-@media (max-width: 740px) { .bli-hero { padding: 3.5rem 1.25rem 3rem; } .bli-hero h1 { font-size: 3rem; } .bli-hero .subhead { font-size: 1.1rem; } }
-@media (max-width: 420px) { .bli-hero h1 { font-size: 2.5rem; } }
+@media (max-width: 740px) { .bli-hero { padding: 3.5rem 1.25rem 3rem; } .bli-hero .subhead { font-size: 1.1rem; } }
 &lt;/style&gt;
 
 &lt;section class=&quot;bli-hero&quot;&gt;
@@ -122,12 +121,12 @@
 .bli-about-book * { box-sizing: border-box; }
 .bli-about-book .inner { max-width: 760px; margin: 0 auto; }
 .bli-about-book .label { font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: #005B54; font-weight: 600; margin-bottom: 0.75rem; text-align: center; }
-.bli-about-book h2 { font-family: &#x27;Libre Baskerville&#x27;, serif; font-size: 2.4rem; font-weight: 700; color: #2D2D2D; line-height: 1.15; margin: 0 0 2rem 0; text-align: center; letter-spacing: -0.005em; }
+.bli-about-book h2 { font-family: &#x27;Libre Baskerville&#x27;, serif !important; font-size: clamp(1.7rem, 5.5vw, 2.4rem) !important; font-weight: 700 !important; color: #2D2D2D !important; line-height: 1.15 !important; margin: 0 0 2rem 0 !important; text-align: center !important; letter-spacing: -0.005em !important; }
 .bli-about-book .lead { font-family: &#x27;Libre Baskerville&#x27;, serif; font-style: italic; font-size: 1.4rem; color: #2D2D2D; text-align: center; line-height: 1.4; max-width: 640px; margin: 0 auto 2.5rem; }
 .bli-about-book p { font-size: 1.075rem; line-height: 1.7; margin: 0 0 1.5rem 0; color: #2D2D2D; }
 .bli-about-book p strong { color: #005B54; font-weight: 700; }
 .bli-about-book .arc { background: #FFFFFF; border-left: 4px solid #005B54; padding: 1.5rem 1.75rem; margin: 2rem 0; font-family: &#x27;Libre Baskerville&#x27;, serif; font-style: italic; font-size: 1.1rem; line-height: 1.55; color: #2D2D2D; border-radius: 0 4px 4px 0; }
-@media (max-width: 740px) { .bli-about-book { padding: 3.5rem 1.25rem; } .bli-about-book h2 { font-size: 1.8rem; } .bli-about-book p { font-size: 1rem; } .bli-about-book .lead { font-size: 1.15rem; } }
+@media (max-width: 740px) { .bli-about-book { padding: 3.5rem 1.25rem; } .bli-about-book p { font-size: 1rem; } .bli-about-book .lead { font-size: 1.15rem; } }
 &lt;/style&gt;
 
 &lt;section class=&quot;bli-about-book&quot;&gt;
@@ -160,7 +159,7 @@
 .bli-moves * { box-sizing: border-box; }
 .bli-moves .inner { max-width: 980px; margin: 0 auto; }
 .bli-moves .label { font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.7); font-weight: 600; margin-bottom: 0.75rem; text-align: center; }
-.bli-moves h2 { font-family: &#x27;Libre Baskerville&#x27;, serif; font-size: 2.4rem; font-weight: 700; color: #FFFFFF; line-height: 1.15; margin: 0 0 2rem 0; text-align: center; letter-spacing: -0.005em; }
+.bli-moves h2 { font-family: &#x27;Libre Baskerville&#x27;, serif !important; font-size: clamp(1.7rem, 5.5vw, 2.4rem) !important; font-weight: 700 !important; color: #FFFFFF !important; line-height: 1.15 !important; margin: 0 0 2rem 0 !important; text-align: center !important; letter-spacing: -0.005em !important; }
 .bli-moves .intro { text-align: center; font-size: 1.1rem; max-width: 580px; margin: 0 auto 3rem; opacity: 0.92; line-height: 1.6; }
 .bli-moves .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; max-width: 920px; margin: 0 auto; }
 .bli-moves .move { text-align: center; }
@@ -168,7 +167,7 @@
 .bli-moves h3 { font-family: &#x27;Libre Baskerville&#x27;, serif; font-weight: 700; font-size: 1.5rem; color: #FFFFFF; margin: 0 0 0.75rem 0; line-height: 1.2; }
 .bli-moves .move p { font-size: 0.95rem; line-height: 1.55; opacity: 0.88; margin: 0; }
 .bli-moves .closer { text-align: center; margin: 3.5rem auto 0; font-family: &#x27;Libre Baskerville&#x27;, serif; font-style: italic; font-size: 1.35rem; color: #FFFFFF; opacity: 0.95; max-width: 580px; }
-@media (max-width: 740px) { .bli-moves { padding: 3.5rem 1.25rem; } .bli-moves h2 { font-size: 1.8rem; } .bli-moves .grid { grid-template-columns: 1fr; gap: 2.5rem; } }
+@media (max-width: 740px) { .bli-moves { padding: 3.5rem 1.25rem; } .bli-moves .grid { grid-template-columns: 1fr; gap: 2.5rem; } }
 &lt;/style&gt;
 
 &lt;section class=&quot;bli-moves&quot;&gt;
@@ -211,10 +210,10 @@
 @import url(&#x27;https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&amp;family=DM+Sans:wght@300;400;500;600;700&amp;display=swap&#x27;);
 .bli-pull { font-family: &#x27;DM Sans&#x27;, sans-serif; background: #FFFFFF; padding: 5rem 1.5rem; text-align: center; }
 .bli-pull * { box-sizing: border-box; }
-.bli-pull blockquote { font-family: &#x27;Libre Baskerville&#x27;, serif; font-size: 2.4rem; line-height: 1.25; color: #2D2D2D; max-width: 720px; margin: 0 auto; font-weight: 700; letter-spacing: -0.01em; border: none; padding: 0; }
+.bli-pull blockquote { font-family: &#x27;Libre Baskerville&#x27;, serif !important; font-size: clamp(1.6rem, 6vw, 2.4rem) !important; line-height: 1.25 !important; color: #2D2D2D !important; max-width: 720px !important; margin: 0 auto !important; font-weight: 700 !important; letter-spacing: -0.01em !important; border: none !important; padding: 0 !important; }
 .bli-pull blockquote em { font-style: italic; color: #005B54; font-weight: 400; }
 .bli-pull .attribution { margin-top: 1.75rem; font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; color: #5A5A5A; font-weight: 600; }
-@media (max-width: 740px) { .bli-pull { padding: 3.5rem 1.25rem; } .bli-pull blockquote { font-size: 1.6rem; } }
+@media (max-width: 740px) { .bli-pull { padding: 3.5rem 1.25rem; } }
 &lt;/style&gt;
 
 &lt;section class=&quot;bli-pull&quot;&gt;
@@ -238,7 +237,7 @@
 .bli-author * { box-sizing: border-box; }
 .bli-author .inner { max-width: 760px; margin: 0 auto; }
 .bli-author .label { font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: #005B54; font-weight: 600; margin-bottom: 0.75rem; text-align: center; }
-.bli-author h2 { font-family: &#x27;Libre Baskerville&#x27;, serif; font-size: 2.4rem; font-weight: 700; color: #2D2D2D; line-height: 1.15; margin: 0 0 2rem 0; text-align: center; letter-spacing: -0.005em; }
+.bli-author h2 { font-family: &#x27;Libre Baskerville&#x27;, serif !important; font-size: clamp(1.7rem, 5.5vw, 2.4rem) !important; font-weight: 700 !important; color: #2D2D2D !important; line-height: 1.15 !important; margin: 0 0 2rem 0 !important; text-align: center !important; letter-spacing: -0.005em !important; }
 .bli-author .card { background: #FFFFFF; padding: 2.5rem 2rem; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.04); max-width: 720px; margin: 0 auto; }
 .bli-author .photo { width: 120px; height: 120px; border-radius: 50%; background: #005B54; margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; overflow: hidden; }
 .bli-author .photo img { width: 70px; height: auto; }
@@ -247,7 +246,7 @@
 .bli-author .card p { font-size: 1rem; line-height: 1.7; margin: 0 0 1.25rem 0; color: #2D2D2D; }
 .bli-author .card p strong { color: #005B54; font-weight: 700; }
 .bli-author .pull-line { font-family: &#x27;Libre Baskerville&#x27;, serif; font-style: italic; font-size: 1.15rem; color: #2D2D2D; text-align: center; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid #E5E5E5; line-height: 1.4; }
-@media (max-width: 740px) { .bli-author { padding: 3.5rem 1.25rem; } .bli-author h2 { font-size: 1.8rem; } }
+@media (max-width: 740px) { .bli-author { padding: 3.5rem 1.25rem; } }
 &lt;/style&gt;
 
 &lt;section class=&quot;bli-author&quot;&gt;
@@ -281,7 +280,7 @@
 .bli-why * { box-sizing: border-box; }
 .bli-why .inner { max-width: 980px; margin: 0 auto; }
 .bli-why .label { font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: #005B54; font-weight: 600; margin-bottom: 0.75rem; text-align: center; }
-.bli-why h2 { font-family: &#x27;Libre Baskerville&#x27;, serif; font-size: 2.4rem; font-weight: 700; color: #2D2D2D; line-height: 1.15; margin: 0 0 0.5rem 0; text-align: center; letter-spacing: -0.005em; }
+.bli-why h2 { font-family: &#x27;Libre Baskerville&#x27;, serif !important; font-size: clamp(1.7rem, 5.5vw, 2.4rem) !important; font-weight: 700 !important; color: #2D2D2D !important; line-height: 1.15 !important; margin: 0 0 0.5rem 0 !important; text-align: center !important; letter-spacing: -0.005em !important; }
 .bli-why .sub { text-align: center; font-family: &#x27;Libre Baskerville&#x27;, serif; font-style: italic; font-size: 1.2rem; color: #5A5A5A; max-width: 620px; margin: 0 auto 3rem; line-height: 1.45; }
 .bli-why .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; margin-top: 1.5rem; }
 .bli-why .card { background: #EEF4F3; padding: 2rem 1.75rem; border-radius: 8px; border-top: 4px solid #005B54; }
@@ -289,7 +288,7 @@
 .bli-why .card h3 { font-family: &#x27;Libre Baskerville&#x27;, serif; font-weight: 700; font-size: 1.2rem; color: #2D2D2D; margin: 0 0 0.75rem 0; line-height: 1.25; }
 .bli-why .card p { font-size: 0.95rem; line-height: 1.6; color: #2D2D2D; margin: 0; }
 .bli-why .card p em { color: #005B54; font-style: italic; }
-@media (max-width: 740px) { .bli-why { padding: 3.5rem 1.25rem; } .bli-why h2 { font-size: 1.8rem; } .bli-why .grid { grid-template-columns: 1fr; } }
+@media (max-width: 740px) { .bli-why { padding: 3.5rem 1.25rem; } .bli-why .grid { grid-template-columns: 1fr; } }
 &lt;/style&gt;
 
 &lt;section class=&quot;bli-why&quot;&gt;
@@ -333,7 +332,7 @@
 .bli-waitlist * { box-sizing: border-box; }
 .bli-waitlist .inner { max-width: 760px; margin: 0 auto; }
 .bli-waitlist .label { font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.7); font-weight: 600; margin-bottom: 0.75rem; }
-.bli-waitlist h2 { font-family: &#x27;Libre Baskerville&#x27;, serif; font-size: 2.6rem; font-weight: 700; color: #FFFFFF; margin: 0 0 1rem 0; line-height: 1.15; }
+.bli-waitlist h2 { font-family: &#x27;Libre Baskerville&#x27;, serif !important; font-size: clamp(1.8rem, 6vw, 2.6rem) !important; font-weight: 700 !important; color: #FFFFFF !important; margin: 0 0 1rem 0 !important; line-height: 1.15 !important; }
 .bli-waitlist .sub { font-family: &#x27;Libre Baskerville&#x27;, serif; font-style: italic; font-size: 1.2rem; color: rgba(255,255,255,0.92); max-width: 540px; margin: 0 auto 1.5rem; line-height: 1.5; }
 .bli-waitlist .note { font-size: 0.78rem; color: rgba(255,255,255,0.7); margin-top: 1.25rem; }
 
@@ -348,7 +347,7 @@
 .bli-waitlist-form-wrap button[type=&quot;submit&quot;] { background: #A66900 !important; color: #FFFFFF !important; font-family: &#x27;DM Sans&#x27;, sans-serif !important; font-weight: 700 !important; font-size: 0.82rem !important; letter-spacing: 0.18em !important; text-transform: uppercase !important; padding: 1rem 1.5rem !important; border-radius: 2px !important; border: none !important; width: 100% !important; min-height: 48px !important; cursor: pointer !important; }
 .bli-waitlist-form-wrap .newsletter-form-button:hover { background: #7A4C00 !important; }
 
-@media (max-width: 740px) { .bli-waitlist { padding: 3.5rem 1.25rem 1.5rem; } .bli-waitlist h2 { font-size: 1.9rem; } }
+@media (max-width: 740px) { .bli-waitlist { padding: 3.5rem 1.25rem 1.5rem; } }
 &lt;/style&gt;
 
 &lt;section class=&quot;bli-waitlist&quot; id=&quot;waitlist&quot;&gt;
