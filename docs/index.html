@@ -1089,7 +1089,7 @@
 
   <div class="strategy-card">
     <h3>What Matt and Anne need to provide — by email</h3>
-    <p>For each role, the inputs we need to draft. Send the inputs; we'll handle the structure and voice.</p>
+    <p>For each role, the inputs we need to draft. Send the inputs; we'll handle the structure, voice, and HubSpot setup.</p>
 
     <h4>Welcome</h4>
     <ul>
@@ -1248,73 +1248,96 @@
   </div>
 
 
-    <!-- ═══ 6. SQUARESPACE → HUBSPOT LEAD FLOW ═══ -->
+      <!-- ═══ 6. SQUARESPACE → HUBSPOT EMAIL FLOW ═══ -->
   <div class="section-header">
     <div class="num">Section 06</div>
-    <h2>Squarespace Email → HubSpot Lead Flow</h2>
+    <h2>Squarespace Capture → HubSpot Email &amp; CRM</h2>
   </div>
 
   <div class="strategy-card">
     <h3>The play</h3>
-    <p>Capture in the Squarespace Newsletter Block. Send the welcome and launch sequence with Squarespace Email. Zapier bridges to HubSpot for CRM tracking and segmentation.</p>
-    <p><strong>Why all four tools:</strong> each does one job well.</p>
-    <ul>
-      <li><strong>Squarespace Newsletter Block</strong> — clean native capture on /overloaded</li>
-      <li><strong>Squarespace Email</strong> — sends welcome + 3-email launch sequence (Sections 02 + 03)</li>
-      <li><strong>Zapier</strong> — bridges Squarespace → HubSpot in real time</li>
-      <li><strong>HubSpot</strong> — system of record. Lead-source attribution. Segmentation, scoring, sales handoff if waitlist members become coaching or speaking leads later</li>
-    </ul>
+    <p>Capture in the Squarespace Newsletter Block. Bridge to HubSpot via Zapier. <strong>HubSpot owns every email — welcome and launch sequence.</strong></p>
+    <p><strong>Why HubSpot for the sends:</strong> single source of truth. Email engagement (opens, clicks, replies) lives on the contact record, feeding segmentation, lead scoring, and any future sales handoff. Templates, workflows, and A/B testing are stronger than Squarespace Email's native tools.</p>
   </div>
 
   <div class="strategy-card">
     <h3>The architecture</h3>
-    <p>One Newsletter Block submission triggers two parallel paths — the email send and the CRM sync.</p>
-    <div class="flow-diagram">
-      <span class="node accent">Newsletter Block submit</span>
-      <span class="arrow">→</span>
-      <span class="node">Squarespace Email</span>
-      <span class="arrow">→</span>
-      <span class="node">Welcome + Launch Sequence</span>
-    </div>
+    <p>One Newsletter Block submission triggers one path. HubSpot does the rest.</p>
     <div class="flow-diagram">
       <span class="node accent">Newsletter Block submit</span>
       <span class="arrow">→</span>
       <span class="node">Zapier</span>
       <span class="arrow">→</span>
-      <span class="node">HubSpot Contact</span>
-      <span class="arrow">+</span>
-      <span class="node">Static List</span>
+      <span class="node">HubSpot Contact + List</span>
+      <span class="arrow">→</span>
+      <span class="node accent">HubSpot Workflow</span>
+      <span class="arrow">→</span>
+      <span class="node">Welcome + Launch Sequence</span>
     </div>
   </div>
 
   <div class="strategy-card">
-    <h3>The setup — 4 steps</h3>
+    <h3>The setup — 5 steps</h3>
     <ol>
-      <li><strong>Connect the Newsletter Block to Zapier.</strong> Edit the block on /overloaded → Storage tab → click <em>Connect to Zapier</em>. In Squarespace, generate an API key: Settings → Advanced → Squarespace API Keys → Create Key → scope: <strong>Forms</strong>. Copy the key into Zapier.</li>
-      <li><strong>Build the multi-step Zap:</strong>
+      <li><strong>Prep HubSpot.</strong>
         <ul>
-          <li><strong>Trigger:</strong> Squarespace → <em>New Form Submission</em> → select the Overloaded Waitlist newsletter</li>
-          <li><strong>Action 1:</strong> HubSpot → <em>Create or Update Contact</em> — match by email. Map: First Name, Email, Lead Source = "Overloaded Waitlist – /overloaded." Set custom property: <code>Waitlist Joined Date</code></li>
-          <li><strong>Action 2:</strong> HubSpot → <em>Add Contact to Static List</em> → select <strong>Overloaded Waitlist</strong></li>
+          <li>Create a static list: <strong>Overloaded Waitlist</strong></li>
+          <li>Add custom contact properties: <em>Waitlist Joined Date</em>, <em>UTM Source</em>, <em>Pre-ordered (Y/N)</em>, <em>Coaching Interest</em></li>
+          <li>Verify the sending domain (bluelakeideas.com) is connected and authenticated for marketing email</li>
         </ul>
       </li>
-      <li><strong>Prep HubSpot.</strong> Create a static list called <strong>Overloaded Waitlist</strong>. Add custom contact properties: <em>Waitlist Joined Date</em>, <em>UTM Source</em>, <em>Pre-ordered (Y/N)</em>, <em>Coaching Interest</em>. These give us segmentation surface area for the launch and beyond.</li>
-      <li><strong>Test end-to-end.</strong> Submit a real signup on /overloaded. Confirm three things: (a) the welcome email arrives via Squarespace Email, (b) the contact appears in HubSpot within ~1 minute, (c) the contact lands on the Overloaded Waitlist list with all properties populated.</li>
+      <li><strong>Build the welcome email + launch sequence in HubSpot.</strong>
+        <ul>
+          <li>Marketing → Email → create 4 emails using the copy from Sections 02 and 03</li>
+          <li>Apply brand template (Deep Blue Lake header, Libre Baskerville + DM Sans, &amp; circle as sender avatar, Power of &amp; horizontal in signature)</li>
+          <li>Set sender: <em>Blue Lake Ideas</em> &lt;hello@bluelakeideas.com&gt; for emails 1–3, <em>Matt Elliott</em> &lt;matt@bluelakeideas.com&gt; for launch day</li>
+        </ul>
+      </li>
+      <li><strong>Build the welcome workflow.</strong>
+        <ul>
+          <li>Automation → Workflows → Contact-based workflow</li>
+          <li><strong>Enrollment trigger:</strong> Contact added to "Overloaded Waitlist" list</li>
+          <li><strong>Action 1:</strong> Send welcome email (immediate, no delay)</li>
+          <li>Mark workflow as active</li>
+        </ul>
+      </li>
+      <li><strong>Connect Squarespace → Zapier.</strong>
+        <ul>
+          <li>Newsletter Block → Storage tab → Connect to Zapier</li>
+          <li>Squarespace API key: Settings → Advanced → Squarespace API Keys → scope: <strong>Forms</strong></li>
+          <li>Zap: Squarespace <em>New Form Submission</em> → HubSpot <em>Create or Update Contact</em> (map First Name, Email, Lead Source, Waitlist Joined Date) → HubSpot <em>Add Contact to Static List</em> (Overloaded Waitlist)</li>
+          <li>The list-add triggers the welcome workflow automatically — no second zap needed</li>
+        </ul>
+      </li>
+      <li><strong>Schedule the 3-email launch sequence as marketing email sends.</strong>
+        <ul>
+          <li>Email 1 (announce pre-orders) — scheduled for pre-order open day, sent to the Overloaded Waitlist list</li>
+          <li>Email 2 (Introduction) — scheduled 3–5 days later</li>
+          <li>Email 3 (launch day) — scheduled for launch day, sent from Matt's address</li>
+          <li>Each send filtered by list = Overloaded Waitlist</li>
+        </ul>
+      </li>
     </ol>
   </div>
 
   <div class="strategy-card">
     <h3>What each tool handles</h3>
-    <h4>Squarespace Email — the sends</h4>
+    <h4>Squarespace</h4>
     <ul>
-      <li>Auto-welcome (Section 02), triggered the moment someone joins the list</li>
-      <li>3-email launch sequence (Section 03), scheduled when pre-orders open</li>
-      <li>Native deliverability — no domain warming, no DNS setup</li>
+      <li>The landing page (/overloaded)</li>
+      <li>Newsletter Block capture only — no sends from Squarespace</li>
     </ul>
-    <h4>HubSpot — the tracking</h4>
+    <h4>Zapier</h4>
     <ul>
-      <li><strong>Lead-source attribution</strong> — UTM data flows in via Zapier, so we see which channels drive signups</li>
-      <li><strong>Segmentation</strong> — pre-ordered vs. didn't, engaged vs. dormant, by source, by city</li>
+      <li>One zap. Submission → HubSpot contact + list-add</li>
+      <li>UTM data and Waitlist Joined Date set as custom properties at signup</li>
+    </ul>
+    <h4>HubSpot — everything else</h4>
+    <ul>
+      <li><strong>Welcome workflow</strong> triggered by list membership — sends within seconds</li>
+      <li><strong>3-email launch sequence</strong> as scheduled marketing emails to the full list</li>
+      <li><strong>Engagement tracking</strong> on each contact (opens, clicks, replies)</li>
+      <li><strong>Segmentation</strong> — by source, engagement, future pre-order status, coaching interest</li>
       <li><strong>Sales handoff</strong> — if a waitlist member becomes a coaching or speaking inquiry later, HubSpot has full history. No relationship starts cold</li>
     </ul>
   </div>
@@ -1323,18 +1346,20 @@
     <h3>Plan &amp; cost</h3>
     <ul>
       <li><strong>Squarespace:</strong> Core plan or higher (required for Zapier integration)</li>
-      <li><strong>Zapier:</strong> Starter at $30/mo — needed for multi-step Zaps. Free plan can't do create-update + list-add in one flow</li>
-      <li><strong>HubSpot:</strong> Free CRM is fine for the waitlist phase. Upgrade only if we need automation workflows or marketing email later</li>
+      <li><strong>Zapier:</strong> Starter at $30/mo — needed for multi-step Zaps</li>
+      <li><strong>HubSpot:</strong> <strong>Marketing Hub Starter</strong> at $20/mo minimum — required for marketing email sends and workflows. Free CRM alone won't send emails</li>
+      <li><strong>Domain authentication:</strong> SPF, DKIM, DMARC records added for bluelakeideas.com so HubSpot sends from the brand domain with full deliverability</li>
     </ul>
   </div>
 
   <div class="strategy-card">
-    <h3>Why this beats the Form Block approach</h3>
+    <h3>Why HubSpot for sends beats Squarespace Email here</h3>
     <ul>
-      <li><strong>Native Squarespace Email integration stays intact</strong> — the Newsletter Block routes to Squarespace Email automatically. Form Blocks don't</li>
-      <li><strong>Zapier handles create-or-update + list-add in one flow</strong> — cleaner than HubSpot's Collected Forms (which has reliability issues per HubSpot's own community)</li>
-      <li><strong>Custom properties at signup</strong> — UTM source, joined date, anything we want on the contact record from day one</li>
-      <li><strong>Single source of truth for the email list</strong> — the Newsletter Block IS the list. No syncing two lists across two platforms</li>
+      <li><strong>One source of truth.</strong> Engagement and contact data live in the same place. No reconciling lists across two platforms.</li>
+      <li><strong>Workflows automate the welcome.</strong> List-add fires the send instantly. No manual scheduling for welcome emails.</li>
+      <li><strong>Better segmentation downstream.</strong> Opens, clicks, and replies update the contact record automatically — so we can target the next campaign by who engaged.</li>
+      <li><strong>Cleaner sales handoff.</strong> When a waitlist member becomes a coaching or speaking lead, the full email history is already attached to their record in HubSpot.</li>
+      <li><strong>Template control.</strong> One brand template applied across all sends, including the email signature with Matt's social links.</li>
     </ul>
   </div>
 
